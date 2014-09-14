@@ -1,7 +1,15 @@
-#!/bin/sh
+#!/bin/bash
 pushd /app
 
-wp core download --locale=ja
-wp core config --dbname='wordpress' --dbuser='root' --dbpass='' --dbhost='localhost' --locale=ja
+echo '=> Download WordPress...'
+wp core download --allow-root --locale=ja
+echo '=> Configure WordPress...'
+wp core config  --allow-root --dbname='wordpress' --dbuser='root' --dbhost='localhost' --locale=ja
+
+if [ -e /setup_wordpress.sh ] ; then
+  source /setup_wordpress.sh
+fi
+
+echo '=> Done!'
 
 popd

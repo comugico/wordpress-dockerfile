@@ -1,13 +1,16 @@
-FROM tutum/lamp
+FROM tutum/wordpress
 
-RUN rm -rf /app
+RUN apt-get install -y curl
+
+RUN rm -rf /app/*
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
 
 ADD install_wordpress.sh /install_wordpress.sh
+ADD run_wp.sh /run_wp.sh
+RUN chmod +x /*.sh
 
-RUN source /install_wordpress.sh
-RUN chown -R www-data:www-data /app /var/www/html
+#RUN bash /install_wordpress.sh
 
 EXPOSE 80 3306
-CMD ["/run.sh"]
+CMD ["/run_wp.sh"]
