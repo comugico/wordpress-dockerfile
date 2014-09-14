@@ -9,9 +9,9 @@ if ! $(wp core is-installed --allow-root); then
   while ( [ ! -e /var/run/supervisor.sock ] ) ; do
     echo '=> Wait mysql'
     #ls -l /var/run
-    sleep 1s
+    sleep 2s
   done
-  sleep 2s
+  sleep 5s
   echo '=> mysql is up'
   #exit
   source /install_wordpress.sh
