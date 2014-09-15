@@ -1,6 +1,6 @@
 FROM tutum/wordpress
 
-RUN apt-get install -y curl
+RUN apt-get install -y curl openssh-server
 
 RUN rm -rf /app/*
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
@@ -12,5 +12,5 @@ RUN chmod +x /*.sh
 
 #RUN bash /install_wordpress.sh
 
-EXPOSE 80 3306
+EXPOSE 80 3306 22
 CMD ["/run_wp.sh"]
