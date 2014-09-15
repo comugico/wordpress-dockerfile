@@ -1,2 +1,2 @@
 #!/bin/bash
-exec sshd -D -p 22
+exec /usr/sbin/sshd -D -p 22 -d
