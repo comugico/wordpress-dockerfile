@@ -1,0 +1,7 @@
+Protocol	2
+AllowUsers	root
+PasswordAuthentication	yes
+PermitRootLogin	yes
+PermitEmptyPasswords	no
+PubkeyAuthentication	no
+X11Forwarding	yes

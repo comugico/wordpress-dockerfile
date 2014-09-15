@@ -7,6 +7,7 @@ RUN rm -rf /app/*
 RUN curl https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar -o /usr/local/bin/wp
 RUN chmod +x /usr/local/bin/wp
 
+ADD sshd_config /custom_sshd_config
 ADD start-sshd.wrapper.sh /start-sshd.wrapper.sh
 ADD start-sshd.sh /start-sshd.sh
 ADD install_wordpress.sh /install_wordpress.sh
