@@ -5,3 +5,4 @@ PermitRootLogin	yes
 PermitEmptyPasswords	no
 PubkeyAuthentication	no
 X11Forwarding	yes
+Subsystem sftp /usr/lib/openssh/sftp-server
